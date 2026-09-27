@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>JAutoShopPT — Acessórios Auto & Moto</title>
+<meta name="description" content="JAutoShopPT — acessórios auto e moto, detailing, interior, iluminação e eletrónica.">
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--text:#101828;--muted:#667085;--brand:#111827;--accent:#e11d48;--line:#e4e7ec;--shadow:0 12px 30px rgba(16,24,40,.08)}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:var(--text);background:var(--bg)}
+button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
+.top{background:#111827;color:#fff;text-align:center;padding:9px 14px;font-size:13px}
+header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line)}
+.nav{max-width:1200px;margin:auto;display:flex;align-items:center;gap:18px;padding:16px 18px}
+.logo{font-size:22px;font-weight:900;letter-spacing:-.6px;white-space:nowrap}.logo span{color:var(--accent)}
+.search{flex:1;position:relative}.search input{width:100%;padding:12px 16px 12px 42px;border:1px solid var(--line);border-radius:999px;outline:0;background:#f8fafc}
+.search b{position:absolute;left:16px;top:10px;font-size:18px;color:var(--muted)}
+.actions{display:flex;gap:9px}.iconbtn{border:1px solid var(--line);background:#fff;border-radius:12px;padding:10px 12px;position:relative}
+.badge{position:absolute;right:-5px;top:-6px;background:var(--accent);color:#fff;border-radius:999px;font-size:10px;min-width:19px;padding:3px 5px;text-align:center}
+.hero{background:linear-gradient(120deg,#111827,#293548);color:#fff}.heroin{max-width:1200px;margin:auto;padding:54px 18px;display:grid;grid-template-columns:1.3fr .7fr;gap:30px;align-items:center}
+.hero h1{font-size:clamp(34px,5vw,58px);line-height:1;letter-spacing:-2px;margin:0 0 18px}.hero p{font-size:18px;color:#d0d5dd;max-width:650px;line-height:1.55}
+.cta{display:inline-flex;background:#fff;color:#111827;border:0;border-radius:12px;padding:13px 18px;font-weight:800;margin-top:10px}
+.heroCard{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:22px;padding:24px}.heroCard div{padding:13px 0;border-bottom:1px solid rgba(255,255,255,.12)}.heroCard div:last-child{border:0}
+.wrap{max-width:1200px;margin:auto;padding:28px 18px}.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:22px}
+.chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 14px;color:#475467}.chip.active{background:#111827;color:#fff;border-color:#111827}
+.controls{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}select{padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.photo{aspect-ratio:1/1;background:#eef2f6;position:relative;overflow:hidden}.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.heart{position:absolute;right:10px;top:10px;width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.92);font-size:18px}
+.body{padding:15px;display:flex;flex-direction:column;flex:1}.cat{font-size:12px;color:var(--accent);font-weight:800;text-transform:uppercase;letter-spacing:.4px}
+.card h3{font-size:16px;margin:7px 0;line-height:1.3}.desc{font-size:13px;color:var(--muted);line-height:1.45;min-height:38px}
+.price{font-size:20px;font-weight:900;margin:12px 0}.buyrow{display:flex;gap:8px;margin-top:auto}.add{flex:1;border:0;background:#111827;color:#fff;border-radius:10px;padding:11px;font-weight:800}.more{border:1px solid var(--line);background:#fff;border-radius:10px;padding:11px}
+footer{margin-top:45px;background:#111827;color:#d0d5dd}.foot{max-width:1200px;margin:auto;padding:38px 18px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:30px}footer h3{color:#fff;margin-top:0}footer a{display:block;margin:8px 0;color:#d0d5dd}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:none;align-items:center;justify-content:center;z-index:50;padding:15px}.modal.open{display:flex}.modalbox{background:#fff;border-radius:20px;max-width:920px;width:100%;max-height:92vh;overflow:auto;padding:20px;position:relative}
+.close{position:absolute;right:15px;top:15px;border:0;background:#f2f4f7;border-radius:10px;width:38px;height:38px;font-size:20px}
+.productdetail{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:25px}.productdetail img{width:100%;border-radius:16px;aspect-ratio:1/1;object-fit:cover}.detailprice{font-size:32px;font-weight:900;margin:15px 0}
+.cartitem{display:grid;grid-template-columns:60px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.cartitem img{width:60px;height:60px;object-fit:cover;border-radius:10px}.qty{display:flex;align-items:center;gap:7px}.qty button{border:1px solid var(--line);background:#fff;border-radius:8px;width:30px;height:30px}
+.form{display:grid;gap:10px;margin-top:15px}.form input,.form textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:12px}.form textarea{min-height:80px}
+.checkout{width:100%;border:0;background:#25d366;color:#fff;border-radius:12px;padding:13px;font-weight:900;margin-top:12px}
+.notice{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;padding:12px;border-radius:12px;font-size:13px;margin-top:15px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.heroin{grid-template-columns:1fr}}
+@media(max-width:650px){.nav{flex-wrap:wrap}.search{order:3;flex-basis:100%}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.wrap{padding:22px 12px}.foot{grid-template-columns:1fr}.productdetail{grid-template-columns:1fr}.controls{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="top">🚚 Encomendas para Portugal · Atendimento via WhatsApp · JAutoShopPT</div>
+<header><div class="nav">
+<a class="logo" href="#" onclick="resetShop();return false">JAuto<span>Shop</span>PT</a>
+<div class="search"><b>⌕</b><input id="search" placeholder="Pesquisar acessórios..." oninput="render()"></div>
+<div class="actions"><button class="iconbtn" onclick="openFav()">♡<span class="badge" id="favCount">0</span></button><button class="iconbtn" onclick="openCart()">🛒<span class="badge" id="cartCount">0</span></button></div>
+</div></header>
+
+<section class="hero"><div class="heroin">
+<div><h1>Acessórios para o teu carro.<br>Sem complicações.</h1><p>Descobre acessórios auto e moto, detailing, interior, iluminação e eletrónica selecionados pela JAutoShopPT.</p><a class="cta" href="#produtos">Ver produtos</a><div style="margin-top:14px;font-size:12px;color:#d0d5dd">Produtos e referências de  pesquisados em anúncios Comprar.</div></div>
+<div class="heroCard"><div>✓ Produtos selecionados</div><div>✓ Compra simples pelo WhatsApp</div><div>✓ Atendimento em português</div><div>✓ JAutoShopPT</div></div>
+</div></section>
+
+<main class="wrap" id="produtos">
+<div class="filters" id="filters"></div>
+<div class="controls"><strong id="resultCount"></strong><select id="sort" onchange="render()"><option value="featured">Mais relevantes</option><option value="low">Preço: menor primeiro</option><option value="high">Preço: maior primeiro</option><option value="name">Nome A–Z</option></select></div>
+<div class="grid" id="grid"></div>
+</main>
+
+<footer><div class="foot">
+<div><h3>JAutoShopPT</h3><p>Acessórios auto e moto com preços competitivos.</p><p>📧 JautoShopPT@gmail.com</p><p>📱 932 402 880</p></div>
+<div><h3>Ajuda</h3><a href="#" onclick="openInfo('entrega');return false">Encomendas</a><a href="#" onclick="openInfo('devolucoes');return false">Devoluções</a><a href="#" onclick="openInfo('faq');return false">FAQ</a></div>
+<div><h3>Informação</h3><a href="#" onclick="openInfo('privacidade');return false">Privacidade</a><a href="#" onclick="openInfo('termos');return false">Termos</a></div>
+</div></footer>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()"><div class="modalbox"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
+
+<script>
+const products = [{"id": 1, "name": "5PCS Escovas de Detailing", "category": "Detailing", "cost": 2.03, "USD": 2.31, "price": 13.99, "description": "Produto Comprar selecionado para a categoria de detailing.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005012589029008.html?w=900", "": "Comprar", "productId": "1005012589029008", "Url": "https://www.Comprar.com/item/1005012589029008.html"}, {"id": 2, "name": "5PCS Escovas de Detailing Interior", "category": "Detailing", "cost": 2.68, "USD": 3.05, "price": 13.87, "description": "Produto Comprar selecionado para a categoria de detailing.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005012707268167.html?w=900", "": "Comprar", "productId": "1005012707268167", "Url": "https://www.Comprar.com/item/1005012707268167.html"}, {"id": 3, "name": "5PCS Kit Escovas + Limpeza", "category": "Detailing", "cost": 4.88, "USD": 5.56, "price": 16.73, "description": "Produto Comprar selecionado para a categoria de detailing.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005007170962692.html?w=900", "": "Comprar", "productId": "1005007170962692", "Url": "https://www.Comprar.com/item/1005007170962692.html"}, {"id": 4, "name": "Toalha Microfibra Dupla Face", "category": "Detailing", "cost": 4.13, "USD": 4.7, "price": 15.75, "description": "Produto Comprar selecionado para a categoria de detailing.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005012605864326.html?w=900", "": "Comprar", "productId": "1005012605864326", "Url": "https://www.Comprar.com/item/1005012605864326.html"}, {"id": 5, "name": "Esponja Microfibra Lavagem", "category": "Lavagem", "cost": 0.42, "USD": 0.48, "price": 10.94, "description": "Acessório Comprar selecionado para lavagem automóvel.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005012889996009.html?w=900", "": "Comprar", "productId": "1005012889996009", "Url": "https://www.Comprar.com/item/1005012889996009.html"}, {"id": 6, "name": "Esponja Lavagem 3 Camadas", "category": "Lavagem", "cost": 6.8, "USD": 7.75, "price": 19.99, "description": "Acessório Comprar selecionado para lavagem automóvel.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005009993324560.html?w=900", "": "Comprar", "productId": "1005009993324560", "Url": "https://www.Comprar.com/item/1005009993324560.html"}, {"id": 7, "name": "Esponja Lavagem Honeycomb", "category": "Lavagem", "cost": 4.6, "USD": 5.24, "price": 16.99, "description": "Acessório Comprar selecionado para lavagem automóvel.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005012072990241.html?w=900", "": "Comprar", "productId": "1005012072990241", "Url": "https://www.Comprar.com/item/1005012072990241.html"}, {"id": 8, "name": "Escova de Jantes", "category": "Detailing", "cost": 8.91, "USD": 10.15, "price": 21.97, "description": "Produto Comprar selecionado para a categoria de detailing.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005011958402239.html?w=900", "": "Comprar", "productId": "1005011958402239", "Url": "https://www.Comprar.com/item/1005011958402239.html"}, {"id": 9, "name": "Escova Limpa Vidros", "category": "Detailing", "cost": 5.89, "USD": 6.71, "price": 18.99, "description": "Produto Comprar selecionado para a categoria de detailing.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005011947894401.html?w=900", "": "Comprar", "productId": "1005011947894401", "Url": "https://www.Comprar.com/item/1005011947894401.html"}, {"id": 10, "name": "Restaurador de Plásticos", "category": "Detailing", "cost": 1.81, "USD": 2.06, "price": 12.74, "description": "Produto Comprar selecionado para a categoria de detailing.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005008160020005.html?w=900", "": "Comprar", "productId": "1005008160020005", "Url": "https://www.Comprar.com/item/1005008160020005.html"}, {"id": 11, "name": "Suporte Telemóvel TOPK Ventilação", "category": "Interior", "cost": 5.3, "USD": 6.04, "price": 17.99, "description": "Acessório Comprar selecionado para o interior do automóvel.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005007550059155.html?w=900", "": "Comprar", "productId": "1005007550059155", "Url": "https://www.Comprar.com/item/1005007550059155.html"}, {"id": 12, "name": "Suporte Magnético TOPK 360°", "category": "Interior", "cost": 7.82, "USD": 8.91, "price": 20.55, "description": "Acessório Comprar selecionado para o interior do automóvel.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005007037790087.html?w=900", "": "Comprar", "productId": "1005007037790087", "Url": "https://www.Comprar.com/item/1005007037790087.html"}, {"id": 13, "name": "Suporte Telemóvel Magnético 360°", "category": "Interior", "cost": 5.84, "USD": 6.65, "price": 17.98, "description": "Acessório Comprar selecionado para o interior do automóvel.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005010439448174.html?w=900", "": "Comprar", "productId": "1005010439448174", "Url": "https://www.Comprar.com/item/1005010439448174.html"}, {"id": 14, "name": "Suporte Telemóvel Ventilação SEAMETAL", "category": "Interior", "cost": 3.66, "USD": 4.17, "price": 15.99, "description": "Acessório Comprar selecionado para o interior do automóvel.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005006860848980.html?w=900", "": "Comprar", "productId": "1005006860848980", "Url": "https://www.Comprar.com/item/1005006860848980.html"}, {"id": 15, "name": "Suporte Telemóvel 360° Sucção", "category": "Interior", "cost": 6.09, "USD": 6.94, "price": 18.99, "description": "Acessório Comprar selecionado para o interior do automóvel.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005009384158377.html?w=900", "": "Comprar", "productId": "1005009384158377", "Url": "https://www.Comprar.com/item/1005009384158377.html"}, {"id": 16, "name": "Organizador Lateral do Banco", "category": "Interior", "cost": 3.49, "USD": 3.98, "price": 14.93, "description": "Acessório Comprar selecionado para o interior do automóvel.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005012070138041.html?w=900", "": "Comprar", "productId": "1005012070138041", "Url": "https://www.Comprar.com/item/1005012070138041.html"}, {"id": 17, "name": "Organizador Universal de Banco", "category": "Interior", "cost": 0.68, "USD": 0.77, "price": 11.99, "description": "Acessório Comprar selecionado para o interior do automóvel.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005004818206071.html?w=900", "": "Comprar", "productId": "1005004818206071", "Url": "https://www.Comprar.com/item/1005004818206071.html"}, {"id": 18, "name": "Organizador de Cabos Autocolante", "category": "Interior", "cost": 2.15, "USD": 2.45, "price": 13.99, "description": "Acessório Comprar selecionado para o interior do automóvel.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005012893719133.html?w=900", "": "Comprar", "productId": "1005012893719133", "Url": "https://www.Comprar.com/item/1005012893719133.html"}, {"id": 19, "name": "Fita LED RGB Ambiente USB", "category": "Iluminação", "cost": 7.4, "USD": 8.43, "price": 20.01, "description": "Acessório Comprar selecionado para iluminação ambiente.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005012335185237.html?w=900", "": "Comprar", "productId": "1005012335185237", "Url": "https://www.Comprar.com/item/1005012335185237.html"}, {"id": 20, "name": "Fita LED RGB Ambiente 2–5m", "category": "Iluminação", "cost": 5.8, "USD": 6.61, "price": 17.93, "description": "Acessório Comprar selecionado para iluminação ambiente.", "tag": "Comprar", "image": "https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.Comprar.com%2Fitem%2F1005007987820573.html?w=900", "": "Comprar", "productId": "1005007987820573", "Url": "https://www.Comprar.com/item/1005007987820573.html"}];
+let cart=JSON.parse(localStorage.getItem('jauto_cart')||'[]');
+let fav=JSON.parse(localStorage.getItem('jauto_fav')||'[]');
+let category='Todos';
+
+function money(v){const n=Number(String(v).replace(',','.'));return Number.isFinite(n)?n.toFixed(2).replace('.',',')+' €':'—'}
+function save(){localStorage.setItem('jauto_cart',JSON.stringify(cart));localStorage.setItem('jauto_fav',JSON.stringify(fav));updateBadges()}
+function updateBadges(){document.getElementById('cartCount').textContent=cart.reduce((s,x)=>s+x.qty,0);document.getElementById('favCount').textContent=fav.length}
+function resetShop(){document.getElementById('search').value='';category='Todos';render();window.scrollTo({top:0,behavior:'smooth'})}
+function renderFilters(){
+ const cats=['Todos',...new Set(products.map(p=>p.category))];
+ document.getElementById('filters').innerHTML=cats.map(c=>`<button class="chip ${c===category?'active':''}" onclick="category='${c}';render()">${c}</button>`).join('');
+}
+function render(){
+ renderFilters();
+ let q=document.getElementById('search').value.toLowerCase();
+ let arr=products.filter(p=>(category==='Todos'||p.category===category)&&(!q||p.name.toLowerCase().includes(q)||p.description.toLowerCase().includes(q)));
+ let s=document.getElementById('sort').value;
+ if(s==='low')arr.sort((a,b)=>parseFloat(a.price)-parseFloat(b.price));
+ if(s==='high')arr.sort((a,b)=>parseFloat(b.price)-parseFloat(a.price));
+ if(s==='name')arr.sort((a,b)=>a.name.localeCompare(b.name));
+ document.getElementById('resultCount').textContent=arr.length+' produtos';
+ document.getElementById('grid').innerHTML=arr.map(p=>`<article class="card">
+ <div class="photo"><img src="${p.image}" alt="${p.name}" loading="lazy" onerror="this.src='https://placehold.co/900x900/f2f4f7/667085?text=Comprar+Product'"><button class="heart" onclick="toggleFav(${p.id});event.stopPropagation()">${fav.includes(p.id)?'♥':'♡'}</button></div>
+ <div class="body"><div class="cat">${p.category}</div><h3>${p.name}</h3><div class="desc">${p.description}</div><div class="price">${money(p.price)}</div>
+ <div class="buyrow"><button class="more" onclick="viewProduct(${p.id})">Ver</button><button class="add" onclick="addCart(${p.id})">Adicionar</button></div></div></article>`).join('');
+ updateBadges();
+}
+function toggleFav(id){fav=fav.includes(id)?fav.filter(x=>x!==id):[...fav,id];save();render()}
+function addCart(id){let x=cart.find(i=>i.id===id);if(x)x.qty++;else cart.push({id,qty:1});save();openCart()}
+function viewProduct(id){let p=products.find(x=>x.id===id);openModal(`<div class="productdetail"><img src="${p.image}" alt="${p.name}"><div><div class="cat">${p.category}</div><h2>${p.name}</h2><p>${p.description}</p><div class="detailprice">${money(p.price)}</div><p><b>Categoria:</b> ${p.tag}</p><p>Confirma a disponibilidade e a variante antes de finalizar a encomenda.</p><button class="add" style="width:100%" onclick="addCart(${p.id})">Adicionar ao carrinho</button></div></div>`)} 
+function openModal(c){document.getElementById('modalContent').innerHTML=c;document.getElementById('modal').classList.add('open')}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+function openCart(){
+ let total=0;
+ let html='<h2>O teu carrinho</h2>';
+ if(!cart.length)html+='<p>O carrinho está vazio.</p>';
+ cart.forEach(x=>{let p=products.find(z=>z.id===x.id);let sub=parseFloat(p.price)*x.qty;total+=sub;html+=`<div class="cartitem"><img src="${p.image}"><div><b>${p.name}</b><div>${money(p.price)} × ${x.qty}</div></div><div class="qty"><button onclick="changeQty(${x.id},-1)">−</button><b>${x.qty}</b><button onclick="changeQty(${x.id},1)">+</button></div></div>`});
+ html+=`<h3>Total: ${money(total)}</h3><div class="notice">O pedido é enviado para a JAutoShopPT para confirmação de disponibilidade, portes e pagamento.</div>
+ <div class="form"><input id="cname" placeholder="Nome"><input id="cphone" placeholder="Telefone"><input id="caddr" placeholder="Morada de entrega"><textarea id="cnote" placeholder="Observações"></textarea><button class="checkout" onclick="sendOrder()">Enviar pedido pelo WhatsApp</button></div>`;
+ openModal(html);
+}
+function changeQty(id,d){let x=cart.find(i=>i.id===id);if(!x)return;x.qty+=d;if(x.qty<=0)cart=cart.filter(i=>i.id!==id);save();openCart()}
+function sendOrder(){
+ if(!cart.length)return;
+ let name=document.getElementById('cname').value.trim(),phone=document.getElementById('cphone').value.trim(),addr=document.getElementById('caddr').value.trim(),note=document.getElementById('cnote').value.trim();
+ if(!name||!phone||!addr){alert('Preenche o nome, telefone e morada.');return}
+ let total=0,lines=cart.map(x=>{let p=products.find(z=>z.id===x.id);total+=parseFloat(p.price)*x.qty;return `• ${p.name} x${x.qty} — ${money(parseFloat(p.price)*x.qty)}`}).join('%0A');
+ let msg=`Olá JAutoShopPT!%0A%0AQuero fazer esta encomenda:%0A${lines}%0A%0ATotal dos produtos: ${money(total)}%0A%0ANome: ${encodeURIComponent(name)}%0ATelefone: ${encodeURIComponent(phone)}%0AMorada: ${encodeURIComponent(addr)}%0AObservações: ${encodeURIComponent(note)}`;
+ window.open('https://wa.me/351932402880?text='+msg,'_blank');
+}
+function openFav(){
+ let arr=products.filter(p=>fav.includes(p.id));
+ openModal('<h2>Favoritos</h2>'+ (arr.length?arr.map(p=>`<div class="cartitem"><img src="${p.image}"><div><b>${p.name}</b><div>${money(p.price)}</div></div><button class="more" onclick="addCart(${p.id})">Adicionar</button></div>`).join(''):'<p>Ainda não tens favoritos.</p>'));
+}
+function openInfo(type){
+ const texts={
+ entrega:['Encomendas','Após receberes o pedido, a JAutoShopPT confirma disponibilidade, portes e prazo antes do pagamento.'],
+ devolucoes:['Devoluções','As condições de devolução devem ser confirmadas antes da compra e aplicadas de acordo com a legislação portuguesa aplicável.'],
+ faq:['FAQ','Como compro? Adiciona ao carrinho e envia o pedido pelo WhatsApp.\n\nComo pago? A JAutoShopPT confirma contigo os métodos de pagamento disponíveis.\n\nOs produtos têm garantia? As condições dependem do produto e  e serão indicadas antes da compra.'],
+ privacidade:['Privacidade','Os dados introduzidos no formulário são usados para tratar o pedido. Evita inserir dados desnecessários. Para uma operação comercial real, publica uma política de privacidade adequada ao teu negócio.'],
+ termos:['Termos','Os preços e disponibilidade apresentados podem mudar. A encomenda só fica confirmada após validação pela JAutoShopPT. Para uma loja comercial real, publica termos completos e informação legal adequada.']
+ };
+ let t=texts[type];openModal(`<h2>${t[0]}</h2><p style="white-space:pre-line;line-height:1.6">${t[1]}</p>`);
+}
+render();
+</script>
+</body>
+</html>
